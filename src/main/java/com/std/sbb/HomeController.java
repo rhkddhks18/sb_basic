@@ -2,6 +2,7 @@ package com.std.sbb;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +16,7 @@ import java.util.Map;
 @Controller
 public class HomeController {
     private  int i;
+
     HomeController() {
         i = -1;
     }
@@ -148,15 +150,6 @@ public class HomeController {
 
         return list;
     }
-
-    @GetMapping("/home/returnPerson")
-    @ResponseBody
-    public List<Person> ShowMain14(@RequestParam(defaultValue = "1") int id, @RequestParam String name, @RequestParam int age) {
-        List<Person> people = new ArrayList<>();
-        id++;
-
-        return people;
-    }
 }
 
 class Car {
@@ -196,12 +189,4 @@ class CarV2 {
     private final int speed;
     private String name;
     private final List<Integer> relatedIds;
-}
-
-@Getter
-@AllArgsConstructor
-class Person {
-    private int id;
-    private String name;
-    private int age;
 }
